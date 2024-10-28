@@ -27,3 +27,27 @@ class Notes:
         dt_now = datetime.datetime.now()
         dt_string = dt_now.strftime('%d/%m/%y %H:%M:%S')
         return dt_string
+
+    def editNotes(noteid):
+        for i in range(1, len(Notes.notesList)):
+            if int(Notes.notesList[i]['noteid']) == noteid:
+                break
+        print("Введите, что будем редактировать: текст заметки(1), теги(2) ", end='')
+        chid = int(input().strip())
+        match chid:
+            case 1:
+                print("Введите текст заметки: ", end='')
+                Notes.notesList[i]['txt'] = input().strip()
+                Notes.notesList[i]['Notedt'] = Notes.getDT()
+
+                print("Текст заметки изменен")
+            case 2:
+                print("Введите теги через запятую: ", end='')
+
+                Notes.notesList[i]['tag'] = list(Notes.notesList[i]['tag'])
+                Notes.notesList[i]['tag'] = list(map(lambda x: x.strip(), input().split(',')))
+                Notes.notesList[i]['Notedt'] = Notes.getDT()
+
+                print("Тэги изменены")
+            case _:
+                print("Неверная команда")
