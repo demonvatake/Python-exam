@@ -51,3 +51,11 @@ class Notes:
                 print("Тэги изменены")
             case _:
                 print("Неверная команда")
+
+
+    def delNotes(noteid):
+        for i in range(1, len(Notes.notesList)):
+            if int(Notes.notesList[i]['noteid']) == noteid:
+                del Notes.notesList[i]
+                print("Удалено успешно")
+                break
