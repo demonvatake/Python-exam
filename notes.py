@@ -17,3 +17,13 @@ class Notes:
         d = dict(noteid=noteid, txt=txt, tag=tag, Notedt=Notes.getDT())
 
         Notes.notesList.append(d)
+
+
+    def listNotes():
+        for c in Notes.notesList:
+            print(*c.values(), sep='   ')
+
+    def getDT():
+        dt_now = datetime.datetime.now()
+        dt_string = dt_now.strftime('%d/%m/%y %H:%M:%S')
+        return dt_string
