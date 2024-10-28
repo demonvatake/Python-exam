@@ -59,3 +59,14 @@ class Notes:
                 del Notes.notesList[i]
                 print("Удалено успешно")
                 break
+
+
+    def getNotesbyDate(notesdate):
+        for i in range(1, len(Notes.notesList)):
+            if Notes.notesList[i]['Notedt'][:8] == notesdate:
+                print(*Notes.notesList[i].values())
+
+    def getNotesbyId(notesid):
+        if len(notesid) > 0:
+            for i in notesid:
+                print(*Notes.notesList[int(i)].values())
